@@ -2,16 +2,17 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Clickable.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Rectangle.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Clickable.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Button.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Point.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Point.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Button.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Clickable.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Point.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Button.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/config.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Rectangle.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Headers/Point.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Headers/Rectangle.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Headers/Button.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Headers/Clickable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Rectangle.cpp" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

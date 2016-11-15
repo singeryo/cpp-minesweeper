@@ -2,7 +2,7 @@
 // Created by Oliver on 22/09/2016.
 //
 #include <iostream>
-#include "Rectangle.h"
+#include "../Headers/Rectangle.h"
 #include <SFML/Graphics.hpp>
 
 using namespace std;

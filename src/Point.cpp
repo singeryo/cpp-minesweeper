@@ -2,7 +2,7 @@
 // Created by Oliver on 21/09/2016.
 //
 #include <iostream>
-#include "Point.h"
+#include "../Headers/Point.h"
 
 using namespace std;
 
