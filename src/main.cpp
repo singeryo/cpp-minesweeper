@@ -1,9 +1,13 @@
 #include <iostream>
-#include "../Headers/Point.h"
-#include "../Headers/Rectangle.h"
+#include "../Headers/Grille.h"
 #include <SFML/Graphics.hpp>
 
 int main() {
 
+    Grille* grille = new Grille(10, 12);
+
+    grille->display();
+
+    delete(grille);
 
 }

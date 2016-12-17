@@ -18,7 +18,7 @@ public:
     Rectangle(int px, int py, int height, int length);
     ~Rectangle();
 
-    void display();
+    virtual void display();
 
 };
 
