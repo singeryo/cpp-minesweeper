@@ -7,10 +7,12 @@
 
 
 
-Grille::Grille(int hauteur, int largeur) {
+Grille::Grille(int hauteur, int largeur, int nbMines) {
 
     this->hauteur = hauteur;
     this->largeur = largeur;
+
+    this->numberOfMines = nbMines;
 
     grille = (Cellule***) malloc (hauteur * sizeof(Cellule**));
 
@@ -20,6 +22,8 @@ Grille::Grille(int hauteur, int largeur) {
     for(int i=0; i<hauteur; i++)
         for(int j=0; j<largeur; j++)
             grille[i][j] = new Cellule();
+
+    placeMines();
 }
 
 void Grille::display() {
@@ -41,5 +45,30 @@ Grille::~Grille() {
             delete (grille[i][j]);
         }
     }
+}
+
+void Grille::placeMines() {
+
+    int mines_restantes = numberOfMines;
+
+    while(mines_restantes){
+
+        int randx = rand() % this->hauteur-1;
+        int randy = rand() % this->largeur-1;
+
+        if(!grille[randx][randy]->getMinee())
+        {
+            grille[randx][randy]->setMinee(1);
+
+            for(int i=randx-1; i<=randx+1; i++)
+                for(int j=randy-1; j<=randy+1; j++)
+                    if((!(i==randx && j==randy)) && (i>=0) && (j>=0))
+                        grille[i][j]->incrementAlentours();
+
+            mines_restantes--;
+        }
+
+    }
+
 }
 

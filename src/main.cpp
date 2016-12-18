@@ -4,7 +4,7 @@
 
 int main() {
 
-    Grille* grille = new Grille(10, 12);
+    Grille* grille = new Grille(10, 12, 6);
 
     grille->display();
 

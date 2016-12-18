@@ -12,14 +12,18 @@ class Cellule: public Rectangle{
 protected:
     int estMinee;
     int mines_alentours;
-
+    int estFlaggee;
 public:
+    int getEstFlaggee() const;
+
+    void setEstFlaggee(int estFlaggee);
 
     Cellule();
     Cellule(int x, int y, int hauteur, int largeur);
 
     void setMinee(int minee);
     void setAlentours(int alentours);
+    void incrementAlentours();
 
     int getMinee();
     int getAlentours();

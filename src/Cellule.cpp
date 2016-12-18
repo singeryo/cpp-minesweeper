@@ -34,3 +34,17 @@ int Cellule::getAlentours() {
 void Cellule::display() {
     std::cout<<mines_alentours;
 }
+
+int Cellule::getEstFlaggee() const {
+    return estFlaggee;
+}
+
+void Cellule::setEstFlaggee(int estFlaggee) {
+    Cellule::estFlaggee = estFlaggee;
+}
+
+void Cellule::incrementAlentours() {
+
+    mines_alentours++;
+
+}

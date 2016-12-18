@@ -12,9 +12,12 @@ protected:
     Cellule ***grille;
     int hauteur;
     int largeur;
+    int numberOfMines;
 
 public:
-    Grille(int hauteur, int largeur);
+    Grille(int hauteur, int largeur, int nbMines);
+    void placeMines();
+
     virtual ~Grille();
 
     void display();
