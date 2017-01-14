@@ -8,22 +8,26 @@
 
 #include "Rectangle.h"
 
-class Cellule: public Rectangle{
+class Cell: public Rectangle{
 protected:
-    int estMinee;
+    int isMined;
     int mines_alentours;
-    int estFlaggee;
+    int isFlagged;
+    int isHidden;
+
 public:
     int getEstFlaggee() const;
 
     void setEstFlaggee(int estFlaggee);
 
-    Cellule();
-    Cellule(int x, int y, int hauteur, int largeur);
+    Cell();
+    Cell(int x, int y, int hauteur, int largeur);
 
     void setMinee(int minee);
     void setAlentours(int alentours);
     void incrementAlentours();
+
+    void unhide();
 
     int getMinee();
     int getAlentours();

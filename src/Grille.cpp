@@ -6,7 +6,14 @@
 #include "../Headers/Grille.h"
 
 
-
+/**
+ *
+ * @param hauteur
+ * @param largeur
+ * @param nbMines
+ *
+ * Grid constructor
+ */
 Grille::Grille(int hauteur, int largeur, int nbMines) {
 
     this->hauteur = hauteur;
@@ -14,14 +21,16 @@ Grille::Grille(int hauteur, int largeur, int nbMines) {
 
     this->numberOfMines = nbMines;
 
-    grille = (Cellule***) malloc (hauteur * sizeof(Cellule**));
+    //Allocate array memory
+    grille = (Cell***) malloc (hauteur * sizeof(Cell**));
 
     for(int row=0; row<largeur; row++)
-        grille[row] = (Cellule**) malloc (largeur * sizeof(Cellule*));
+        grille[row] = (Cell**) malloc (largeur * sizeof(Cell*));
 
+    //Allocate Cell memory
     for(int i=0; i<hauteur; i++)
         for(int j=0; j<largeur; j++)
-            grille[i][j] = new Cellule();
+            grille[i][j] = new Cell();
 
     placeMines();
 }
@@ -49,10 +58,11 @@ Grille::~Grille() {
 
 void Grille::placeMines() {
 
-    int mines_restantes = numberOfMines;
+    int remaining_mines = numberOfMines;
 
-    while(mines_restantes){
+    while(remaining_mines){
 
+        //Random X and Y values
         int randx = rand() % this->hauteur-1;
         int randy = rand() % this->largeur-1;
 
@@ -60,12 +70,13 @@ void Grille::placeMines() {
         {
             grille[randx][randy]->setMinee(1);
 
+            //Increment surrounding cells nearby mines by 1
             for(int i=randx-1; i<=randx+1; i++)
                 for(int j=randy-1; j<=randy+1; j++)
                     if((!(i==randx && j==randy)) && (i>=0) && (j>=0))
                         grille[i][j]->incrementAlentours();
 
-            mines_restantes--;
+            remaining_mines--;
         }
 
     }

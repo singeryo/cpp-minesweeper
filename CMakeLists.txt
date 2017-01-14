@@ -1,8 +1,22 @@
 cmake_minimum_required(VERSION 3.6)
 project(Minesweeper)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_STANDARD 11)
 
+set(SOURCE_FILES
+        Headers/Button.h
+        Headers/Cell.h
+        Headers/Clickable.h
+        Headers/Grille.h
+        Headers/Point.h
+        Headers/Rectangle.h
+        src/Button.cpp
+        src/Cell.cpp
+        src/Clickable.cpp
+        src/config.cpp
+        src/Grille.cpp
+        src/main.cpp
+        src/Point.cpp
+        src/Rectangle.cpp)
 
-set(SOURCE_FILES src/main.cpp src/Point.cpp Headers/Point.h src/Rectangle.cpp Headers/Rectangle.h src/Button.cpp Headers/Button.h src/Clickable.cpp Headers/Clickable.h src/config.cpp src/Cellule.cpp Headers/Cellule.h src/Grille.cpp Headers/Grille.h)
 add_executable(Minesweeper ${SOURCE_FILES})

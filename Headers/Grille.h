@@ -5,11 +5,11 @@
 #ifndef MINESWEEPER_GRILLE_H
 #define MINESWEEPER_GRILLE_H
 
-#include "Cellule.h"
+#include "Cell.h"
 
 class Grille {
 protected:
-    Cellule ***grille;
+    Cell ***grille;
     int hauteur;
     int largeur;
     int numberOfMines;
