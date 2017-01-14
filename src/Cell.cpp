@@ -11,11 +11,11 @@ Cell::Cell(): Cell(0, 0, 0, 0) {
 
 Cell::Cell(int x, int y, int hauteur, int largeur) : Rectangle(x, y, hauteur, largeur) {
     setAlentours(0);
-    setMinee(0);
+    setMined(0);
     isHidden = 1;
 }
 
-void Cell::setMinee(int minee) {
+void Cell::setMined(int minee) {
     isMined = minee;
 }
 
@@ -23,7 +23,7 @@ void Cell::setAlentours(int alentours) {
     mines_alentours = alentours;
 }
 
-int Cell::getMinee() {
+int Cell::getMined() {
     return isMined;
 }
 
@@ -32,22 +32,22 @@ int Cell::getAlentours() {
 
 }
 
-void Cell::display() {
+void Cell::displayNaked() {
     if(isMined)
         std::cout<<"M";
     else
         std::cout<<mines_alentours;
 }
 
-int Cell::getEstFlaggee() const {
+int Cell::getFlagged() const {
     return isFlagged;
 }
 
-void Cell::setEstFlaggee(int estFlaggee) {
-    Cell::isFlagged = estFlaggee;
+void Cell::setFlagged(int flagged) {
+    Cell::isFlagged = flagged;
 }
 
-void Cell::incrementAlentours() {
+void Cell::incrementNearby() {
 
     mines_alentours++;
 

@@ -1,12 +1,12 @@
 #include <iostream>
-#include "../Headers/Grille.h"
+#include "../Headers/Grid.h"
 #include <SFML/Graphics.hpp>
 
 int main() {
 
-    Grille* grille = new Grille(10, 12, 8);
+    Grid* grille = new Grid(10, 12, 8);
 
-    grille->display();
+    grille->displayNaked();
 
     delete(grille);
 

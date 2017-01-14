@@ -7,20 +7,20 @@
 
 #include "Cell.h"
 
-class Grille {
+class Grid {
 protected:
-    Cell ***grille;
+    Cell ***grid;
     int hauteur;
     int largeur;
     int numberOfMines;
 
 public:
-    Grille(int hauteur, int largeur, int nbMines);
-    void placeMines();
+    Grid(int hauteur, int largeur, int nbMines);
+    void placeMines(int remainingMines);
 
-    virtual ~Grille();
+    virtual ~Grid();
 
-    void display();
+    void displayNaked();
 
 };
 

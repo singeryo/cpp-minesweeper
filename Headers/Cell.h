@@ -16,23 +16,23 @@ protected:
     int isHidden;
 
 public:
-    int getEstFlaggee() const;
+    int getFlagged() const;
 
-    void setEstFlaggee(int estFlaggee);
+    void setFlagged(int flagged);
 
     Cell();
     Cell(int x, int y, int hauteur, int largeur);
 
-    void setMinee(int minee);
+    void setMined(int minee);
     void setAlentours(int alentours);
-    void incrementAlentours();
+    void incrementNearby();
 
     void unhide();
 
-    int getMinee();
+    int getMined();
     int getAlentours();
 
-    void display();
+    void displayNaked();
 
 
 };
