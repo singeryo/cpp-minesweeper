@@ -1,13 +1,15 @@
 #include <iostream>
-#include "../Headers/Grid.h"
+#include "../Headers/GameManager.h"
 #include <SFML/Graphics.hpp>
 
 int main() {
 
-    Grid* grille = new Grid(10, 12, 8);
+    GameManager* manager = new GameManager();
 
-    grille->displayNaked();
+    manager->Initialize();
+    manager->DisplayDev();
 
-    delete(grille);
 
+
+    delete(manager);
 }

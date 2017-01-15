@@ -9,18 +9,19 @@
 
 class Grid {
 protected:
-    Cell ***grid;
+    Cell*** grid;
     int hauteur;
     int largeur;
     int numberOfMines;
 
 public:
     Grid(int hauteur, int largeur, int nbMines);
-    void placeMines(int remainingMines);
+    void PlaceMines(int remainingMines);
+    int SelectCell(int x, int y);
 
     virtual ~Grid();
 
-    void displayNaked();
+    void DisplayNaked();
 
 };
 

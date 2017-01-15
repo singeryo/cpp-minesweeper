@@ -17,6 +17,6 @@ set(SOURCE_FILES
         src/Grid.cpp
         src/main.cpp
         src/Point.cpp
-        src/Rectangle.cpp)
+        src/Rectangle.cpp src/GameManager.cpp Headers/GameManager.h)
 
 add_executable(Minesweeper ${SOURCE_FILES})

@@ -36,15 +36,15 @@ Grid::Grid(int hauteur, int largeur, int nbMines) {
     //Generate our random base value with the time it is
     time_t* time = new time_t();
     srand((unsigned int)time);
-    rPlaceMines(numberOfMines);
+    PlaceMines(numberOfMines);
 }
 
-void Grid::displayNaked() {
+void Grid::DisplayNaked() {
 
     for(int i=0; i<hauteur; i++)
         for(int j=0; j<largeur; j++)
         {
-            grid[i][j]->displayNaked();
+            grid[i][j]->DisplayNaked();
             if(j == largeur-1)
                 std::cout<<"\n";
         }
@@ -61,7 +61,7 @@ Grid::~Grid() {
 }
 
 
-void Grid::placeMines(int remainingMines) {
+void Grid::PlaceMines(int remainingMines) {
 
     //Recursive ending condition
     if(!remainingMines)
@@ -79,13 +79,20 @@ void Grid::placeMines(int remainingMines) {
         for(int i=randx-1; i<=randx+1; i++)
             for(int j=randy-1; j<=randy+1; j++)
                 if((!(i==randx && j==randy)) && (i>=0) && (j>=0))
-                    grid[i][j]->incrementNearby();
+                    grid[i][j]->IncrementNearby();
 
         //Decrement remaining mines only if onr was actually placed
         remainingMines--;
     }
 
-    placeMines(remainingMines);
+    //Recursive call
+    PlaceMines(remainingMines);
+
+}
+
+int Grid::SelectCell(int x, int y) {
+
+
 
 }
 

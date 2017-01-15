@@ -21,18 +21,18 @@ public:
     void setFlagged(int flagged);
 
     Cell();
-    Cell(int x, int y, int hauteur, int largeur);
+    Cell(int x, int y, int height, int length);
 
     void setMined(int minee);
     void setAlentours(int alentours);
-    void incrementNearby();
+    void IncrementNearby();
 
-    void unhide();
+    void Unhide();
 
     int getMined();
     int getAlentours();
 
-    void displayNaked();
+    void DisplayNaked();
 
 
 };
