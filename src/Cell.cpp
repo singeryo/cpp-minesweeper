@@ -9,10 +9,14 @@ Cell::Cell(): Cell(0, 0, 0, 0) {
 
 }
 
+Cell::Cell(int x, int y) : Cell(x, y, DEFAULT_HEIGHT, DEFAULT_LENGTH) {
+
+}
+
 Cell::Cell(int x, int y, int height, int length) : Rectangle(x, y, height, length) {
     setAlentours(0);
     setMined(0);
-    isHidden = 1;
+    setHidden(1);
 }
 
 void Cell::setMined(int minee) {
@@ -48,13 +52,14 @@ void Cell::setFlagged(int flagged) {
 }
 
 void Cell::IncrementNearby() {
-
     mines_alentours++;
-
 }
 
-void Cell::Unhide() {
 
-    isHidden = 0;
+int Cell::getHidden() const {
+    return isHidden;
+}
 
+void Cell::setHidden(int isHidden) {
+    Cell::isHidden = isHidden;
 }

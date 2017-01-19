@@ -15,19 +15,25 @@ protected:
     int isFlagged;
     int isHidden;
 
+    const int DEFAULT_HEIGHT=10;
+    const int DEFAULT_LENGTH=10;
+
+
 public:
     int getFlagged() const;
-
     void setFlagged(int flagged);
 
+    int getHidden() const;
+
+    void setHidden(int isHidden);
+
     Cell();
+    Cell(int x, int y);
     Cell(int x, int y, int height, int length);
 
     void setMined(int minee);
     void setAlentours(int alentours);
     void IncrementNearby();
-
-    void Unhide();
 
     int getMined();
     int getAlentours();

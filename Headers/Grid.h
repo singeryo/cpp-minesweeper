@@ -10,8 +10,8 @@
 class Grid {
 protected:
     Cell*** grid;
-    int hauteur;
-    int largeur;
+    int height;
+    int length;
     int numberOfMines;
 
 public:

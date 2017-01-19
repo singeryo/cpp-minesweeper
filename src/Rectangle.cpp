@@ -19,7 +19,7 @@ Rectangle::~Rectangle() {
 
 void Rectangle::display(){
 
-    cout<<"Rectangle : hauteur = " << height << " largeur = " << length << endl;
+    cout<<"Rectangle : height = " << height << " length = " << length << endl;
 
 }
 

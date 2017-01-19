@@ -17,47 +17,50 @@
  */
 Grid::Grid(int hauteur, int largeur, int nbMines) {
 
-    this->hauteur = hauteur;
-    this->largeur = largeur;
+    this->height = hauteur;
+    this->length = largeur;
 
     this->numberOfMines = nbMines;
 
     //Allocate array memory
-    grid = (Cell***) malloc (hauteur * sizeof(Cell**));
+    grid = new Cell**[hauteur];
 
-    for(int row=0; row<largeur; row++)
-        grid[row] = (Cell**) malloc (largeur * sizeof(Cell*));
-
-    //Allocate Cell memory
-    for(int i=0; i<hauteur; i++)
-        for(int j=0; j<largeur; j++)
-            grid[i][j] = new Cell();
+    for(int row=0; row<hauteur; row++)
+    {
+        grid[row] = new Cell*[largeur];
+        for(int column=0; column<largeur; column++)
+            //Allocate cell memory
+            grid[row][column] = new Cell(row, column);
+    }
 
     //Generate our random base value with the time it is
     time_t* time = new time_t();
     srand((unsigned int)time);
+
     PlaceMines(numberOfMines);
 }
 
 void Grid::DisplayNaked() {
 
-    for(int i=0; i<hauteur; i++)
-        for(int j=0; j<largeur; j++)
+    for(int i=0; i<height; i++)
+        for(int j=0; j<length; j++)
         {
             grid[i][j]->DisplayNaked();
-            if(j == largeur-1)
+            if(j == length-1)
                 std::cout<<"\n";
         }
 }
 
 Grid::~Grid() {
 
-    for(int i=0; i<hauteur; i++)
+    for(int i=0; i<height; i++)
     {
-        for(int j=0; j<largeur; j++) {
+        for(int j=0; j<length; j++) {
             delete (grid[i][j]);
         }
+        delete(grid[i]);
     }
+    delete(grid);
 }
 
 
@@ -68,8 +71,8 @@ void Grid::PlaceMines(int remainingMines) {
         return;
 
     //Random X and Y values
-    int randx = rand() % this->hauteur-1;
-    int randy = rand() % this->largeur-1;
+    int randx = rand() % this->height;
+    int randy = rand() % this->length;
 
     if(!grid[randx][randy]->getMined())
     {
@@ -78,10 +81,10 @@ void Grid::PlaceMines(int remainingMines) {
         //Increment surrounding cells nearby mines by 1
         for(int i=randx-1; i<=randx+1; i++)
             for(int j=randy-1; j<=randy+1; j++)
-                if((!(i==randx && j==randy)) && (i>=0) && (j>=0))
+                if((!(i==randx && j==randy)) && (i>=0) && (j>=0) && (i<height) && (j<length))
                     grid[i][j]->IncrementNearby();
 
-        //Decrement remaining mines only if onr was actually placed
+        //Decrement remaining mines only if one was actually placed
         remainingMines--;
     }
 
@@ -92,7 +95,18 @@ void Grid::PlaceMines(int remainingMines) {
 
 int Grid::SelectCell(int x, int y) {
 
+    Cell* selected = grid[x][y];
 
+    if(selected->getMined())
+    {
+        //Init game loss functions ?
+        return 0;
+    }
+    else
+    {
+        //init selection functions
+        return 1;
+    }
 
 }
 
